@@ -5,7 +5,7 @@ const client = new Client({
     gateway: {
         autoReconnect: true,
         getAllUsers: false,
-        intents: ["MESSAGE_CONTENT"],
+        intents: ["GUILD_MESSAGES", "MESSAGE_CONTENT"],
     },
 });
 
