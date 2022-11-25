@@ -25,7 +25,8 @@ client.on('interactionCreate', (interaction) => {
 client.on('messageCreate', (message) => {
     if(message.content.startsWith('!ping') {
         message.channel.createMessage({
-            content: Math.round(message.guild.latency)
+            content: Math.round(message.guild.latency),
+            messageReference: {messageID: message.id, failIfNotExists: false}
         });
     }
 })
