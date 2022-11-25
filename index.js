@@ -1,4 +1,4 @@
-const {Client, ApplicationCommandTypes} = require ('oceanic.js');
+const {Client, ApplicationCommandTypes, CommandInteraction} = require ('oceanic.js');
 
 const client = new Client({
     auth: 'Bot <token>',
@@ -27,8 +27,10 @@ client.on('ready', async () => {
 })
 
 client.on('interactionCreate', (interaction) => {
-    if(interaction.data.name == 'ping') {
-        interaction.createMessage({ content: Math.round(interaction.guild.latency), flags: 64 });
+    if(interaction instanceof CommandInteraction) {
+        if(interaction.data.name == 'ping') {
+            interaction.createMessage({ content: Math.round(interaction.guild.latency), flags: 64 });
+        }
     }
 })
 client.on('messageCreate', (message) => {
