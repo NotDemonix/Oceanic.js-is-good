@@ -1,8 +1,17 @@
 const {Client, ApplicationCommandTypes} = require ('oceanic.js');
 
 const client = new Client({
-    auth: 'Bot <token>'
+    auth: 'Bot <token>',
+    gateway: {
+        autoReconnect: true,
+        getAllUsers: false,
+        intents: ["MESSAGE_CONTENT"],
+    },
 });
+
+client.on('error', () => {
+    return;
+})
 
 client.on('ready', async () => {
     console.log('Oceanic.js is giga')
