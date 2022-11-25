@@ -7,6 +7,11 @@ const client = new Client({
         getAllUsers: false,
         intents: ["GUILD_MESSAGES", "MESSAGE_CONTENT"],
     },
+    collectionLimits: {
+        members: 0,
+        messages: 0,
+        users: 0,
+    }, //Disable cache if not needed
 });
 
 client.on('error', () => {
